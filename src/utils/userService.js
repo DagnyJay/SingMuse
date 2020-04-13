@@ -21,5 +21,10 @@ function getUser() {
 
 export default {
   signup, 
-  getUser
+  getUser,
+  logout
 };
+
+function logout() {
+  tokenService.removeToken();
+}
