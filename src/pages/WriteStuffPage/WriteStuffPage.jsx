@@ -5,8 +5,11 @@ import './WriteStuffPage.css';
 const WriteStuffPage = (props) => {
     return (
         <div className="WriteStuffPage">
-            <h4> I'm from WriteStuff </h4>
-            <NavBar />
+            <NavBar user={props.user} />
+            <div className="flex-h align-flex-end">
+                <WriteStuffPage />
+
+            </div>
         </div>
     );
 }

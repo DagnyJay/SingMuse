@@ -10,10 +10,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      // user: userService.getUser()
     }
   }
-
 
   render() {
     return (
@@ -21,7 +20,9 @@ class App extends Component {
       <header className='App-header'> Sing, Muse </header>
       <Switch>
           <Route exact path='/' render={() => 
-          <WriteStuffPage />
+          <WriteStuffPage 
+            user={this.state.user}
+          />
           } />
           <Route exact path='/signup' render={({ history }) => 
           <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} /> 

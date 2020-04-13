@@ -3,16 +3,20 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = (props) => {
-    let nav = !props.user ?
-        <nav>
-            <Link exact to='/signup'>SIGNUP</Link>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <Link exact to='/login'>LOGIN</Link>
-        </nav>
-        :
-        <div>
-            <h4> Test the route? </h4>
-        </div>
+    let nav = props.user ?
+      <div>
+        <Link to='/about' className='NavBar-link'>About</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <Link to='' className='NavBar-link'>LOG OUT</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span className='NavBar-welcome'>Well met, {props.user.name}</span>
+      </div>
+      :
+      <div>
+        <Link to='/login' className='NavBar-link'>LOG IN</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+      </div>;
 
     return (
         <div className='NavBar'>

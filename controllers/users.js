@@ -17,6 +17,8 @@ module.exports = {
     }
   }
 
+  
+
   /*--- helper functions ----*/
   function createJWT(user) {
     return jwt.sign(
