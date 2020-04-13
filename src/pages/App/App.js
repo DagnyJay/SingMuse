@@ -20,13 +20,13 @@ class App extends Component {
     <div className="App">
       <header className='App-header'> Sing, Muse </header>
       <Switch>
-          <Route to='/' render={() => 
+          <Route exact path='/' render={() => 
           <WriteStuffPage />
           } />
-          <Route to='/signup' render={() =>
-          <SignUpPage />
+          <Route exact path='/signup' render={({ history }) => 
+          <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} /> 
           } />
-          <Route to='/login' render={() =>
+          <Route exact path='/login' render={() =>
           <LoginPage />
           } />
       </Switch>
