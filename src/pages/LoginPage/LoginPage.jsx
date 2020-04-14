@@ -9,17 +9,16 @@ class LoginPage extends Component {
     email: '',
     pw: ''
   };
-
+ 
   handleChange = (e) => {
     this.setState({
-      // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
     });
   }
 
   handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
+    e.preventDefault(); 
+    try { 
       await userService.login(this.state);
       // Let <App> know a user has signed up!
       this.props.handleSignupOrLogin();
