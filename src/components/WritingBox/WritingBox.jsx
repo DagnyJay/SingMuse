@@ -19,8 +19,7 @@ class WritingBox extends Component {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <textarea id="writeStuff" className="materialize-textarea" name="content"></textarea>
-                            <label htmlFor="writeStuff">Start writing here!</label>
+                            <textarea placeholder="Start writing here :)" cols="30" rows="20" className="writeStuff-textarea" name="content"> </textarea>
                         </div>
                     </div>
                 </form>

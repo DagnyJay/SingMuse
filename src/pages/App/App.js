@@ -15,6 +15,19 @@ class App extends Component {
       user: userService.getUser()
     }
   }
+
+  getInitialState() {
+    return {
+      remainingTime: "10:00",
+      isTiming: true
+    };
+  }
+  
+  handleTimerUpdate = () => {
+    this.setState((curState) => ({remainingTime: --curState.remainingTime}));
+  }
+
+  }
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
@@ -37,6 +50,9 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => 
             <HomePage
+              remainingTime={this.state.remainingTime}
+              isTiming={this.state.isTiming} 
+              handleTimerUpdate={this.handleTimerUpdate} 
               handleLogout={this.handleLogout}
               user={this.state.user}
             />    
@@ -57,6 +73,6 @@ class App extends Component {
       </div>
     )
   }
-}
+};
 
 export default App;
