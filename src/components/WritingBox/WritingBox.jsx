@@ -19,7 +19,7 @@ class WritingBox extends Component {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <textarea placeholder="Start writing here :)" cols="30" rows="20" className="writeStuff-textarea" name="content"> </textarea>
+                            <textarea onChange={this.handleWriting} value={this.state.content} placeholder="start writing here :)" className="writeStuff-textarea" name="content"> </textarea>
                         </div>
                     </div>
                 </form>

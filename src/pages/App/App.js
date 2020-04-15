@@ -6,13 +6,15 @@ import HomePage from '../HomePage/HomePage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import tokenService from '../../utils/tokenService';
+import wordService from '../../utils/wordService';
+// import tokenService from '../../utils/tokenService';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      randomWords: []
     }
   }
 
@@ -22,12 +24,22 @@ class App extends Component {
       isTiming: true
     };
   }
+
+  handleGetRandomWords = async () => {
+    const words = await wordService.getRandomWords();
+    this.setState({
+      randomWords: words
+    })
+  }
+
+  async componentDidMount() {
+    this.handleGetRandomWords();
+  }
   
   handleTimerUpdate = () => {
     this.setState((curState) => ({remainingTime: --curState.remainingTime}));
   }
 
-  }
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
@@ -45,11 +57,12 @@ class App extends Component {
           <NavBar 
                 user={this.state.user} 
                 handleLogout={this.handleLogout}
-            />
+          />
         </header> 
         <Switch>
           <Route exact path='/' render={() => 
             <HomePage
+              randomWords={this.state.randomWords}
               remainingTime={this.state.remainingTime}
               isTiming={this.state.isTiming} 
               handleTimerUpdate={this.handleTimerUpdate} 
@@ -73,6 +86,6 @@ class App extends Component {
       </div>
     )
   }
-};
+}
 
 export default App;

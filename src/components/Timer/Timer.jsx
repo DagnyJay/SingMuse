@@ -27,7 +27,7 @@ function formatTime(seconds) {
   
     render() {
       return (
-        <div className={Timer}>
+        <div className="Timer">
           {formatTime(this.props.remainingTime)}
         </div>
       );
