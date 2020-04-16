@@ -21,7 +21,7 @@ class App extends Component {
   getInitialState() {
     return {
       remainingTime: "10:00",
-      isTiming: true
+      isTiming: false
     };
   }
 
@@ -62,12 +62,12 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => 
             <HomePage
+              user={this.state.user}
               randomWords={this.state.randomWords}
               remainingTime={this.state.remainingTime}
               isTiming={this.state.isTiming} 
               handleTimerUpdate={this.handleTimerUpdate} 
               handleLogout={this.handleLogout}
-              user={this.state.user}
             />    
           } />
           <Route exact path='/signup' render={({ history }) => 
