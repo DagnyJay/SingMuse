@@ -4,6 +4,7 @@ import WritingBox from '../../components/WritingBox/WritingBox';
 import RandomWordPrompts from '../../components/RandomWordPrompts/RandomWordPrompts';
 import AcceptOrRejectBtns from '../../components/AcceptOrRejectBtns/AcceptOrRejectBtns';
 import Timer from '../../components/Timer/Timer';
+import AddToWritingsBtn from '../../components/AddToWritingsBtn/AddToWritingsBtn';
 
 
 const HomePage = (props) => {
@@ -18,8 +19,12 @@ const HomePage = (props) => {
                     handleTimerUpdate={props.handleTimerUpdate}
                     isTiming={props.isTiming}
                 />
-                <AcceptOrRejectBtns />
+                <AcceptOrRejectBtns 
+                    handleTimerStart={props.handleTimerStart}
+                    handleGetRandomWords={props.handleGetRandomWords}
+                />
                 <WritingBox />
+                <AddToWritingsBtn />
             </div>
         </div>
     );

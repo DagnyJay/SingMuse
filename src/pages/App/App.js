@@ -12,7 +12,7 @@ import wordService from '../../utils/wordService';
 class App extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = {...this.getInitialState(),
       user: userService.getUser(),
       randomWords: []
     }
@@ -20,7 +20,7 @@ class App extends Component {
 
   getInitialState() {
     return {
-      remainingTime: "10:00",
+      remainingTime: 600,
       isTiming: false
     };
   }
@@ -35,9 +35,23 @@ class App extends Component {
   async componentDidMount() {
     this.handleGetRandomWords();
   }
-  
+
+  handleTimerStart = () => {
+    this.setState({
+      isTiming: true
+    });
+  }
+
   handleTimerUpdate = () => {
     this.setState((curState) => ({remainingTime: --curState.remainingTime}));
+  }
+
+  handleTimerEnd = () => {
+    if (this.state.remainingTime === 0) {
+        this.setState({
+        isTiming: false
+      });
+    }
   }
 
   handleSignupOrLogin = () => {
@@ -67,7 +81,9 @@ class App extends Component {
               remainingTime={this.state.remainingTime}
               isTiming={this.state.isTiming} 
               handleTimerUpdate={this.handleTimerUpdate} 
+              handleTimerStart={this.handleTimerStart}
               handleLogout={this.handleLogout}
+              handleGetRandomWords={this.handleGetRandomWords}
             />    
           } />
           <Route exact path='/signup' render={({ history }) => 

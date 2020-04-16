@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/users', require('./routes/api/users'));
 // mount our custom middleware to protect routes below it
 app.use(require('./config/auth'));  
+app.use('/api/writings', require('./routes/api/writings'));
 
 
 // The following "catch all" route (note the *)is necessary for a SPA's client-side routing to properly work
