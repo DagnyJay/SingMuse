@@ -10,9 +10,11 @@ function formatTime(seconds) {
   class Timer extends Component {
   
     handleTick = () => {
-      // Ignore ticks?
-      if (!this.props.isTiming) return;
-      this.props.handleTimerUpdate();
+        if (this.props.remainingTime === 0) {
+            this.props.handleTimerEnd()
+        }
+        if (!this.props.isTiming) return;
+        this.props.handleTimerUpdate();
     };
   
     /*--- Lifecycle Methods ---*/

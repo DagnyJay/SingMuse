@@ -7,6 +7,7 @@ import SignUpPage from '../SignUpPage/SignUpPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import wordService from '../../utils/wordService';
+import writingService from '../../utils/writingService';
 // import tokenService from '../../utils/tokenService';
 
 class App extends Component {
@@ -20,7 +21,7 @@ class App extends Component {
 
   getInitialState() {
     return {
-      remainingTime: 600,
+      remainingTime: 5,
       isTiming: false
     };
   }
@@ -47,11 +48,9 @@ class App extends Component {
   }
 
   handleTimerEnd = () => {
-    if (this.state.remainingTime === 0) {
         this.setState({
         isTiming: false
       });
-    }
   }
 
   handleSignupOrLogin = () => {
@@ -61,6 +60,10 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
+  }
+
+  handleAddToWritings = async writing => {
+    await writingService.create(writing);
   }
 
   render() {
@@ -84,6 +87,8 @@ class App extends Component {
               handleTimerStart={this.handleTimerStart}
               handleLogout={this.handleLogout}
               handleGetRandomWords={this.handleGetRandomWords}
+              handleTimerEnd={this.handleTimerEnd}
+              handleAddToWritings={this.handleAddToWritings}
             />    
           } />
           <Route exact path='/signup' render={({ history }) => 
