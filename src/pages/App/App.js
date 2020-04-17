@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
+import WritingsPage from '../WritingsPage/WritingsPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -15,13 +16,14 @@ class App extends Component {
     super();
     this.state = {...this.getInitialState(),
       user: userService.getUser(),
+      writings: [],
       randomWords: []
     }
   }
 
   getInitialState() {
     return {
-      remainingTime: 5,
+      remainingTime: 300,
       isTiming: false
     };
   }
@@ -35,6 +37,10 @@ class App extends Component {
 
   async componentDidMount() {
     this.handleGetRandomWords();
+    const writings = await writingService.getAll();
+    this.setState({
+      writings: writings
+    })
   }
 
   handleTimerStart = () => {
@@ -89,8 +95,13 @@ class App extends Component {
               handleGetRandomWords={this.handleGetRandomWords}
               handleTimerEnd={this.handleTimerEnd}
               handleAddToWritings={this.handleAddToWritings}
-            />    
+            /> 
           } />
+          <Route exact path='/writings' render={() =>
+            <WritingsPage 
+              writings={this.state.writings}
+            />
+          } />  
           <Route exact path='/signup' render={({ history }) => 
             <SignUpPage
               history={history}
