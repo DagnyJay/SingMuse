@@ -19,14 +19,25 @@ class WritingBox extends Component {
         this.props.handleAddToWritings(this.state);
     }
 
+
+
     render() {
         return(
             <div className="row">
-                <form className="col s12" onSubmit={this.handleSubmit}>
+                <form className="col s12 m6 l4" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input onChange={this.handleWriting} value={this.state.title} placeholder="If you wanna keep me, give me a title!" name="title" />
-                            <textarea onChange={this.handleWriting} value={this.state.content} placeholder="start writing here :)" className="writeStuff-textarea" name="content"> </textarea>
+                            <input 
+                                onChange={this.handleWriting} 
+                                value={this.state.title} placeholder="If you wanna keep me, give me a title!" 
+                                // disabled value={this.props.isTiming===false ? "disabled" : null}
+                                name="title" />
+                            <textarea 
+                                className="writeStuff-textarea" name="content"
+                                onChange={this.handleWriting} 
+                                value={this.state.content} 
+                                placeholder="start writing here :)" >
+                            </textarea>
                         </div>
                     </div>
                     <button className="waves-effect purple btn-large"> 

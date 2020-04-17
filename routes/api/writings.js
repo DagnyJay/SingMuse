@@ -3,6 +3,7 @@ router.use(require('../../config/auth'));
 const writingsCtrl = require('../../controllers/writings');
 
 router.get('/', checkAuth, writingsCtrl.index);
+router.get('/:id', checkAuth, writingsCtrl.show);
 router.post('/', checkAuth, writingsCtrl.create);
 
 function checkAuth(req, res, next) {
