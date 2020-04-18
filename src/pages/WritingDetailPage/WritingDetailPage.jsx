@@ -1,16 +1,18 @@
 import React from 'react';
+import { withRouter } from "react-router";
 
-function WritingDetailPage({ writing }) {
+function WritingDetailPage(props) {
+    console.log(props);
     return (
-        <div class="row">
-            <div class="col s12">
-                <div class="card purple lighten-3">
-                    <div class="card-content white-text">
-                        <span class="card-title">{writing.title}</span>
-                        <p> {writing.content}</p>
+        <div className="row">
+            <div className="col s12">
+                <div className="card purple lighten-3">
+                    <div className="card-content white-text">
+                        <span className="card-title">{props.location.state.title}</span>
+                        <p> {props.location.state.content}</p>
                     </div>
-                    <div class="random-words">
-                        {writing.randomWords}
+                    <div className="random-words">
+                        {props.location.state.randomWords}
                     </div>
                 </div>
             </div>
@@ -18,4 +20,4 @@ function WritingDetailPage({ writing }) {
     )
 }
 
-export default WritingDetailPage;
+export default withRouter(WritingDetailPage);

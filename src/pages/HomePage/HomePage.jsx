@@ -25,6 +25,7 @@ const HomePage = (props) => {
                 />
                 <WritingBox 
                     handleAddToWritings={props.handleAddToWritings}
+                    isTiming={props.isTiming}
                 />
             </div>
         </div>

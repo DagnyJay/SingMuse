@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
@@ -9,6 +9,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import wordService from '../../utils/wordService';
 import writingService from '../../utils/writingService';
+import WritingDetailPage from '../WritingDetailPage/WritingDetailPage';
 // import tokenService from '../../utils/tokenService';
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
 
   getInitialState() {
     return {
-      remainingTime: 300,
+      remainingTime: 5,
       isTiming: false
     };
   }
@@ -69,7 +70,12 @@ class App extends Component {
   }
 
   handleAddToWritings = async writing => {
+    writing.randomWords=this.state.randomWords.join(', ')
     await writingService.create(writing);
+    const writings = await writingService.getAll();
+    this.setState({
+      writings: writings
+    })
   }
 
   render() {
@@ -78,12 +84,13 @@ class App extends Component {
         <header className='App-header'>
           Sing, Muse
           <NavBar 
-                user={this.state.user} 
-                handleLogout={this.handleLogout}
+              user={this.state.user} 
+              handleLogout={this.handleLogout}
           />
         </header> 
         <Switch>
           <Route exact path='/' render={() => 
+            userService.getUser() ?
             <HomePage
               user={this.state.user}
               randomWords={this.state.randomWords}
@@ -96,12 +103,26 @@ class App extends Component {
               handleTimerEnd={this.handleTimerEnd}
               handleAddToWritings={this.handleAddToWritings}
             /> 
+            :
+            <Redirect to='/login' />
           } />
+          
           <Route exact path='/writings' render={() =>
+          userService.getUser() ?
             <WritingsPage 
               writings={this.state.writings}
             />
-          } />  
+            :
+            <Redirect to='/login' />
+          } /> 
+
+          <Route exact path='/writings/:id' render={() =>
+          userService.getUser() ?
+            <WritingDetailPage />
+            :
+            <Redirect to='/login' />
+          } />
+    
           <Route exact path='/signup' render={({ history }) => 
             <SignUpPage
               history={history}
