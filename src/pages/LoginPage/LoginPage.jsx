@@ -34,7 +34,7 @@ class LoginPage extends Component {
     return (
       <div className="container">
         <div className="LoginPage">
-          <header className="header-footer">Welcome back! Log in here :) </header>
+          <header className="welcome-header">Welcome back! Log in here :) </header>
           <form className="form-horizontal" onSubmit={this.handleSubmit} >
             <div className="form-group">
               <div className="col-sm-12">
@@ -54,6 +54,7 @@ class LoginPage extends Component {
             </div>
           </form>
         </div>
+        <footer> 'Sing, Muse' is a work on progress by Dagny Wise, 2020</footer>
       </div>
     );
   }

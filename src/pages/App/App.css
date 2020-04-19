@@ -1,5 +1,36 @@
 .App {
   text-align: center;
   font-family: 'Marmelad', sans-serif;
-
 }
+
+.LoginPage, .SignUpPage {
+  background-image: url("../../assets/images/calliope-thinking.png"),
+  url("../../assets/images/calliope-thinking.png"),
+  radial-gradient(
+    circle at top right,
+    #4a148c,
+    #e0e0e0 60%
+  );
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+.welcome-header {
+  padding-top: 2%;
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: medium;
+}
+
+.LoginPage form, .SignUpPage form {
+  margin: 2%;
+  background-color: rgba(255,255,255, 0.3);
+}
+
+.LoginPage, .SignUpPage {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}
+

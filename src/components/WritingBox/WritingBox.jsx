@@ -23,7 +23,6 @@ class WritingBox extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // You don't have to do this check first, but it can help prevent an unneeded render
         if (nextProps.isTiming !== this.state.isTiming) {
           this.setState({ isTiming: nextProps.isTiming });
         }
@@ -33,22 +32,21 @@ class WritingBox extends Component {
         return(
             <div className="row">
                 <form className="col s12" onSubmit={this.handleSubmit}>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input 
-                                onChange={this.handleWriting} 
-                                value={this.state.title} placeholder="If you wanna keep me, give me a title!" 
-                                name="title" />
-                            <textarea 
-                                className="writeStuff-textarea" name="content"
-                                onChange={this.handleWriting} 
-                                value={this.state.content} 
-                                disabled={!this.state.isTiming}
-                                placeholder="start writing here :)" >
-                            </textarea>
-                        </div>
+                    <div className="input-field col s12">
+                        <input 
+                            className="writeStuff-input"
+                            onChange={this.handleWriting} 
+                            value={this.state.title} placeholder="If you wanna keep me, give me a title!" 
+                            name="title" />
+                        <textarea 
+                            className="writeStuff-textarea" name="content"
+                            onChange={this.handleWriting} 
+                            value={this.state.content} 
+                            disabled={!this.state.isTiming}
+                            placeholder="start writing here :)" >
+                        </textarea>
                     </div>
-                    <button className="waves-effect purple btn-large"> 
+                    <button className="waves-effect purple btn-small"> 
                         <i className="material-icons left">add</i> 
                         Add To Writings
                     </button>

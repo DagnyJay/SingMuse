@@ -4,7 +4,7 @@ function WritingCard({ writing, handler }) {
     return (
         <div className="row" onClick={handler}>
             <div className="col s12 m6 l4 xl3">
-                <div className="card blue-grey darken-1">
+                <div className="card purple">
                     <div className="card-content white-text">
                         <span className="card-title">{writing.title}</span>
                         <p> {writing.content}</p>

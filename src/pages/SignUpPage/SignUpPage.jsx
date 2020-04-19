@@ -14,9 +14,12 @@ class SignUpPage extends Component {
 
   render() {
     return (
-      <div className='SignUpPage'>
-        <SignUpForm {...this.props} updateMessage={this.updateMessage} />
-        <p>{this.state.message}</p>
+      <div className="container">
+        <div className='SignUpPage'>
+          <SignUpForm {...this.props} updateMessage={this.updateMessage} />
+          <p>{this.state.message}</p>
+        </div>
+        <footer> 'Sing, Muse' is a work on progress by Dagny Wise, 2020</footer>
       </div>
     );
   }

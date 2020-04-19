@@ -2,3 +2,7 @@
     display: flex;
     height: 300px;
 }
+
+.input-field {
+    background-color: rgba(255,255,255, 0.3);
+}
