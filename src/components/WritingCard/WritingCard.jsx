@@ -1,16 +1,19 @@
 import React from 'react';
+import './WritingCard.css';
 
 function WritingCard({ writing, handler }) {
     return (
         <div className="row" onClick={handler}>
-            <div className="col s12 m6 l4 xl3">
+            <div className="col s12">
                 <div className="card purple">
                     <div className="card-content white-text">
                         <span className="card-title">{writing.title}</span>
-                        <p> {writing.content}</p>
-                    </div>
-                    <div className="random-words">
-                        {writing.randomWords}
+                        <div className="card-content">
+                            {writing.content.length > 20 ? writing.content.substring(0, 30) + "..." : writing.content}
+                        </div>
+                        <div className="random-words">
+                            {writing.randomWords}
+                        </div>
                     </div>
                 </div>
             </div>

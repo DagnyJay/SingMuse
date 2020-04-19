@@ -1,0 +1,11 @@
+div.card-content.white-text {
+    padding: 0 5px 0 5px;
+}
+
+.card-content {
+    padding: 0px;
+}
+
+.random-words {
+    font-style: italic;
+}

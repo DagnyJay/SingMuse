@@ -34,7 +34,6 @@ class WritingBox extends Component {
                 <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="input-field col s12">
                         <input 
-                            className="writeStuff-input"
                             onChange={this.handleWriting} 
                             value={this.state.title} placeholder="If you wanna keep me, give me a title!" 
                             name="title" />

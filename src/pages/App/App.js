@@ -60,13 +60,14 @@ class App extends Component {
       });
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+  handleSignupOrLogin = async () => {
+    const writings = await writingService.getAll();
+    this.setState({user: userService.getUser(), writings});
   }
 
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null});
+    this.setState({user: null, writings:[]});
   }
 
   handleAddToWritings = async writing => {
