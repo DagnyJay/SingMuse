@@ -15,7 +15,6 @@ const HomePage = (props) => {
                     remainingTime={props.remainingTime}
                     isTiming={props.isTiming}
                 />
-
                 <RandomWordPrompts 
                     randomWords={props.randomWords}
                 />

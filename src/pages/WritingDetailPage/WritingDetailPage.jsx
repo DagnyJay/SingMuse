@@ -18,7 +18,6 @@ function WritingDetailPage(props) {
                     </div>
                 </div>
             </div>
-            <footer> 'Sing, Muse' by Dagny Wise, 2020</footer>
         </div>
     )
 }
