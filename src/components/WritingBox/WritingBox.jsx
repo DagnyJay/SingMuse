@@ -22,7 +22,7 @@ class WritingBox extends Component {
         this.props.history.push('/writings');
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         if (nextProps.isTiming !== this.state.isTiming) {
           this.setState({ isTiming: nextProps.isTiming });
         }
