@@ -23,7 +23,7 @@ class App extends Component {
 
   getInitialState() {
     return {
-      remainingTime: 300,
+      remainingTime: 30,
       isTiming: false
     };
   }
