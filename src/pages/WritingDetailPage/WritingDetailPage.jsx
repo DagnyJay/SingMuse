@@ -3,7 +3,6 @@ import { withRouter } from "react-router";
 import './WritingDetailPage.css';
 
 function WritingDetailPage(props) {
-    console.log(props);
     return (
         <div className="container">
             <div className="WritingDetailPage">

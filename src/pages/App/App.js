@@ -10,7 +10,6 @@ import userService from '../../utils/userService';
 import wordService from '../../utils/wordService';
 import writingService from '../../utils/writingService';
 import WritingDetailPage from '../WritingDetailPage/WritingDetailPage';
-// import tokenService from '../../utils/tokenService';
 
 class App extends Component {
   constructor() {
@@ -24,7 +23,7 @@ class App extends Component {
 
   getInitialState() {
     return {
-      remainingTime: 15,
+      remainingTime: 300,
       isTiming: false
     };
   }
