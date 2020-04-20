@@ -7,7 +7,7 @@ function WritingsPage(props) {
     if (props.writings.length) {
         return (
             <div className="container">
-                <h3>My Writings</h3>
+                <h4>My Writings</h4>
                     <div className='WritingsPage'>
                             {props.writings.map(writing => 
                                 <WritingCard 

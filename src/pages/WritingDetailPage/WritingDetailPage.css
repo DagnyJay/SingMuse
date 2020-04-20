@@ -1,0 +1,7 @@
+.WritingDetailPage {
+    background-image: url("../../assets/images/calliope-standing.png");
+    background-repeat: repeat-x;
+    background-position: bottom right;
+    background-color: #b388ff;
+    border-radius: 50%; 
+  }

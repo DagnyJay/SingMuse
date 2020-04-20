@@ -1,0 +1,13 @@
+.user-message-welcome, .user-message-writing-done, .user-message-writing-now, .user-message-writing-near-end {
+    background-color: rgba(255,255,255, 0.3);
+    margin: 0 2% 0 2%;
+    padding: 1px;
+    color: white;
+    border-radius: 50%;
+}
+
+.user-message-writing-near-end {
+    font-size: large;
+    font-weight: 700;
+    background-color: #9c27b0;
+}
