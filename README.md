@@ -19,7 +19,7 @@ HTML, CSS, Javascript, NodeJS, Express, MongoDB, Mongoose, and React.
 
 #### Getting Started ####
 You can view my planning [Trello board here](https://trello.com/b/x5quFuzx/capstone-project-singmuse)
-And check out my deployed app on [Heroku here] (https://singmuse.herokuapp.com)
+And check out my deployed app on Heroku at https://singmuse.herokuapp.com
 
 ##### Planned Future Enhancements #####
 * An About Page!
