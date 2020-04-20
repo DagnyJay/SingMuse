@@ -15,15 +15,16 @@ In this age of quarantine and social distancing, creative expression is more imp
 ![Imgur](https://i.imgur.com/AjVDVvR.png)
 
 #### Technologies Used ####
-HTML, CSS, Javascript, NodeJS, Express, MongoDB, Mongoose, and React. 
+HTML, CSS, Javascript, NodeJS, Express, MongoDB, Mongoose, Heroku, and React. 
 
 #### Getting Started ####
 You can view my planning [Trello board here](https://trello.com/b/x5quFuzx/capstone-project-singmuse)
 And check out my deployed app on Heroku at https://singmuse.herokuapp.com
 
 ##### Planned Future Enhancements #####
-* An About Page!
+* An 'about' page!
 * Ability to share writings on social media
-Ability to delete and edit (just the title) of writings - gotta stick with the mission of no editorializing after the fact!
-* Ability for suer to customize how long they want the timer to go for
+* Ability to delete and edit (just the title) of writings - gotta stick with the mission of no editorializing after the fact!
+* Ability for user to customize how long they want the timer to go for
 * Find a better word API - the one I have currently does the trick, but doesn't allow for selecting words by parts of speech or obscurity (i.e, medical terms and extremely niche vocabulary are common currently, which is not ideal)
+* A dictionary api on top of the random words so people can look up what a word means if they get an uncommon one
